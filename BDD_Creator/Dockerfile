@@ -14,7 +14,18 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install --no-dev
 
 # Install the PDO MySQL extension
-RUN docker-php-ext-install pdo_mysql && apt-get update
+# old version
+# RUN docker-php-ext-install pdo_mysql && apt-get update
+
+# new version a tester apre manger
+# RUN apt-get update && apt-get install -y mysql-client
+
+# mix des 2 version
+RUN apt-get update && apt-get install -y default-mysql-client \
+    && docker-php-ext-install pdo_mysql
+
+
+# RUN apt-get update && apt-get install -y mysql-client
 
 # Install default-mysql-client (dernier ajout a del si sa chie)
 # RUN apt-get install -y default-mysql-client

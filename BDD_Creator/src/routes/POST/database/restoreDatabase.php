@@ -43,7 +43,7 @@ try {
     $db->createDatabase($databaseNewName);
     $db->useDatabase($databaseNewName);
 
-    $command = "mysql -u root -p{$PASSWORD} {$databaseNewName} < {$filePath} 2>&1";
+    $command = "mysql -h mysql -u root -p{$PASSWORD} {$databaseNewName} < {$filePath} 2>&1";
     exec($command, $output, $returnVar);
 
     if ($returnVar !== 0) {

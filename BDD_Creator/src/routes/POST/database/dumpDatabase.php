@@ -34,7 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $databaseName = $data["databaseName"];
     // $db->useDatabase($databaseName);
     $fileName = $databaseName . $date . $time . ".sql";
-    $dir = '/var/www/html/src/dump' . $fileName;
+    $dir = '/var/www/html/src/dump/' . $fileName;
+
+    if (!file_exists('/var/www/html/src/dump')) {
+        mkdir('/var/www/html/src/dump', 0777, true);
+    }
     exec("mysqldump --user={$USERNAME} --password={$PASSWORD} --host={$HOST} {$databaseName} --result-file={$dir} 2>&1", $output);
     if (file_exists($dir)) {
         echo json_encode(["result" => "success", "message" => "Database dumped successfully"]);
