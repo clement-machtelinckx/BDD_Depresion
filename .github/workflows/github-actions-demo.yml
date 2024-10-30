@@ -1,18 +1,30 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Run PHPUnit Tests in Docker
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  Explore-GitHub-Actions:
+  test:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      # 1. Check out the repository
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
+
+      # 2. Set up Docker Compose and build the containers
+      - name: Set up Docker
         run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+          docker-compose -f docker-compose.yml up -d --build
+
+      # 3. Run PHPUnit tests in the PHP container
+      - name: Run PHPUnit tests
+        run: |
+          docker-compose exec bdd_depresion-php-api ./vendor/bin/phpunit --configuration phpunit.xml
+
+      # 4. Shut down Docker Compose after tests
+      - name: Shut down Docker Compose
+        run: |
+          docker-compose down
