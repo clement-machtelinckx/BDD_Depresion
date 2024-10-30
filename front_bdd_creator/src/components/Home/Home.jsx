@@ -12,7 +12,7 @@ const navigate = useNavigate();
 
   return (
     <div className="container">
-<h1>yo mon reuftitititit</h1>
+<h1>yo mon reuf</h1>
       <div className="home">
         <h1 className="welcome-message">Welcome on BDD Creator</h1>
         <h3>the best DatabaseManager </h3>
@@ -23,7 +23,6 @@ const navigate = useNavigate();
           <img src="https://picsum.photos/id/190/200/300" alt="lorem image" />
           <img src="https://picsum.photos/id/292/200/300" alt="lorem image" />
         </div>
-
       </div>
       <test/>
     </div>
