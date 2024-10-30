@@ -21,6 +21,11 @@ jobs:
         working-directory: ./BDD_Creator
         run: composer install
 
+      # 4. Autoload Composer
+      - name: autoload composer
+        working-directory: ./BDD_Creator
+        run: composer dump-autoload
+
       # 4. Run PHPUnit tests
       - name: Run PHPUnit tests
         working-directory: ./BDD_Creator
