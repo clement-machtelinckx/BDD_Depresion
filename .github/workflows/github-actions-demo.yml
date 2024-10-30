@@ -7,27 +7,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-          # 1. Set up PHP 8.2
-      - name: Set up PHP tests
+      # 1. Set up PHP 8.2
+      - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
 
-      # 1. Check out repository
+      # 2. Check out repository
       - uses: actions/checkout@v3
 
-      # 2. Navigate to the BDD_Creator directory
-      - name: Change to BDD_Creator directory
+      # 3. Install Composer dependencies in BDD_Creator directory
+      - name: Install dependencies
         working-directory: ./BDD_Creator
-        run: echo "Changed to BDD_Creator directory."
-
-      # 3. Install Composer dependencies
-      - uses: php-actions/composer@v6
-        with:
-          working_dir: ./BDD_Creator  # Specify the working directory for Composer
+        run: composer install
 
       # 4. Run PHPUnit tests
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit tests
         working-directory: ./BDD_Creator
+        run: vendor/bin/phpunit tests
