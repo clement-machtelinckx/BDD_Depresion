@@ -8,20 +8,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out the repository
+      # 1. Set up PHP 8.2
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      # 2. Check out repository
       - uses: actions/checkout@v3
 
-      # 2. Set up Docker Compose and build the containers
-      - name: Set up Docker
-        run: |
-          docker compose -f docker-compose.yml up -d --build
+      # 3. Install Composer dependencies in BDD_Creator directory
+      - name: Install dependencies
+        working-directory: ./BDD_Creator
+        run: composer install
 
-      # 3. Run PHPUnit tests in the PHP container
+      # 4. Autoload Composer
+      - name: autoload composer
+        working-directory: ./BDD_Creator
+        run: composer dump-autoload
+
+      # 4. Run PHPUnit tests
       - name: Run PHPUnit tests
-        run: |
-          docker compose exec bdd_depresion-php-api ./vendor/bin/phpunit tests
-
-      # 4. Shut down Docker Compose after tests
-      - name: Shut down Docker Compose
-        run: |
-          docker-compose down
+        working-directory: ./BDD_Creator
+        run: vendor/bin/phpunit tests
