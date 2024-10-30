@@ -18,7 +18,7 @@ jobs:
       # 3. Install Composer dependencies
       - uses: php-actions/composer@v6
         with:
-          working-directory: ./BDD_Creator  # Specify the working directory for Composer
+          working_dir: ./BDD_Creator  # Specify the working directory for Composer
 
       # 4. Run PHPUnit tests
       - name: Run PHPUnit tests
