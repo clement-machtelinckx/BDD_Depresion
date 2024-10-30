@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    
+
           # 1. Set up PHP 8.2
-      - name: Set up PHP
+      - name: Set up PHP tests
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
@@ -29,5 +29,5 @@ jobs:
 
       # 4. Run PHPUnit tests
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit tests
         working-directory: ./BDD_Creator
