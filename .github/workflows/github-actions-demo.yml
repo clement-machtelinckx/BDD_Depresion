@@ -1,4 +1,3 @@
-
 name: CI
 
 on: [push]
@@ -8,8 +7,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Check out repository
       - uses: actions/checkout@v3
-      - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
+
+      # 2. Navigate to the BDD_Creator directory
+      - name: Change to BDD_Creator directory
+        working-directory: ./BDD_Creator
+        run: echo "Changed to BDD_Creator directory."
+
+      # 3. Install Composer dependencies
       - uses: php-actions/composer@v6
-      - run: echo "Composer dependencies have been installed"
-      - run: vendor/bin/phpunit
+        with:
+          working-directory: ./BDD_Creator  # Specify the working directory for Composer
+
+      # 4. Run PHPUnit tests
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit
+        working-directory: ./BDD_Creator
