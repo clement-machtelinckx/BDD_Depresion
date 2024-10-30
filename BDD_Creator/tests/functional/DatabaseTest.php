@@ -3,7 +3,7 @@
 
 use PHPUnit\Framework\TestCase;
 use App\Class\Database;
-require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 // use GuzzleHttp\Client;
 // include '../src/conf.php';
