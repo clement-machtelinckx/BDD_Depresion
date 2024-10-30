@@ -1,0 +1,40 @@
+.database_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+
+.create_db {
+    margin-top: 100px;
+    
+
+}
+
+/* .create_db p {
+    color: white;
+    margin: 0;
+    margin-left: 20px;
+}
+
+.create_db a:hover {
+    text-decoration: underline;
+} */
+
+
+.create_db a {
+    /* text-decoration: none; */
+    /* color: white; */
+    margin-left: 20px;
+    justify-content: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 25px;
+}

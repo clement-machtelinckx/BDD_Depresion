@@ -1,0 +1,16 @@
+.create-btn{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    opacity: 0.9;
+    border-radius: 25px;
+    margin-left: 30px;
+  }
+  
+  .create-btn:hover {
+    opacity: 1;
+}

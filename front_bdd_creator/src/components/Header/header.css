@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: black;
+    padding: 10px;
+}
+.header nav {
+    display: flex;
+    flex-direction: row;
+
+}
+.header p {
+    color: white;
+    margin: 0;
+    margin-left: 20px;
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+}
+
+.header a:hover {
+    text-decoration: underline;
+}

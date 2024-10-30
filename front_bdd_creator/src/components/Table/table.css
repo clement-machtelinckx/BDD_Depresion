@@ -1,0 +1,25 @@
+.tablee {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.tablee h1 {
+    color: white;
+    margin: 20px;
+}
+
+.create_table p {
+    color: white;
+    margin: 0;
+    margin-left: 20px;
+}
+
+.create_table a {
+    text-decoration: none;
+    color: white;
+}
+
+.create_table a:hover {
+    text-decoration: underline;
+}
+

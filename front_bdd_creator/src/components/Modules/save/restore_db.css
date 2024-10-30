@@ -1,0 +1,10 @@
+.restore_db div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .restore_db input {
+    margin-right: 10px;
+  }
+  
