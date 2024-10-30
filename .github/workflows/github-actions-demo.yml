@@ -14,12 +14,12 @@ jobs:
       # 2. Set up Docker Compose and build the containers
       - name: Set up Docker
         run: |
-          docker-compose -f docker-compose.yml up -d --build
+          docker compose -f docker-compose.yml up -d --build
 
       # 3. Run PHPUnit tests in the PHP container
       - name: Run PHPUnit tests
         run: |
-          docker-compose exec bdd_depresion-php-api ./vendor/bin/phpunit tests
+          docker compose exec bdd_depresion-php-api ./vendor/bin/phpunit tests
 
       # 4. Shut down Docker Compose after tests
       - name: Shut down Docker Compose
