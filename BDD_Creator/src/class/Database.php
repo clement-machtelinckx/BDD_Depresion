@@ -1,5 +1,4 @@
 <?php
-// yoyoyoy
 namespace App\Class;
 use PDO;
 use PDOException;
