@@ -6,14 +6,6 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: root
-        ports:
-          - 3307:3306
-
     steps:
 
       # 1. Set up PHP 8.2
