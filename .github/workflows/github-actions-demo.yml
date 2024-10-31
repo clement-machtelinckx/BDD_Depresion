@@ -44,5 +44,5 @@ jobs:
 
       # 8. Run PHPUnit tests
       - name: Run PHPUnit tests
-        run: docker-compose exec bdd_depresion-php-api ./vendor/bin/phpunit -c /var/www/html/BDD_Creator/phpunit.xml
+        run: docker exec -it bdd_depresion-php-api ./vendor/bin/phpunit tests
 
