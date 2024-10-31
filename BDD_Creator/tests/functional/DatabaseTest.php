@@ -5,6 +5,11 @@ use PHPUnit\Framework\TestCase;
 use App\Class\Database;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+if (!class_exists('App\Class\Database')) {
+    include __DIR__ . '/../../src/Class/Database.php';
+}
+
+
 // use GuzzleHttp\Client;
 // include '../src/conf.php';
 
