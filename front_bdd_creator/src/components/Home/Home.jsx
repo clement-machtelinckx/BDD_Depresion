@@ -12,7 +12,6 @@ const navigate = useNavigate();
 
   return (
     <div className="container">
-<h1>yo mon reuf test Action</h1>
       <div className="home">
         <h1 className="welcome-message">Welcome on BDD Creator</h1>
         <h3>the best DatabaseManager </h3>
