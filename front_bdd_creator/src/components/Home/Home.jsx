@@ -13,6 +13,7 @@ const navigate = useNavigate();
   return (
     <div className="container">
       <div className="home">
+        <h1>yoyo</h1>
         <h1 className="welcome-message">Welcome on BDD Creator</h1>
         <h3>the best DatabaseManager </h3>
         <p>made by wish</p>
