@@ -17,7 +17,7 @@ class DatabaseTest extends TestCase
 {
 public function testCreateDatabase()
 {
-    $db = new Database('mysql', 'root', 'root');
+    $db = new Database('bdd_depresion-mysql-1', 'root', 'root');
     $db->connect();
     $db->createDatabase('test');
     $this->assertContains('test', $db->getCollectionDatabases());
