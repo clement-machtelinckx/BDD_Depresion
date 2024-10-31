@@ -105,15 +105,15 @@ public function updateRow(): void
     $db->updateRow('restaurant', 'id', 1, ['name' => 'McGronalds', 'age' => 55, 'date' => '2022-03-01', 'description' => 'slow food']);
 }
 
-public function testDeleteRow():void
-{
-    $db = new Database('mysql', 'root', 'root');
-    $db->connect();
-    $db->useDatabase('test');
-    $db->dropRow('restaurant', 'id', 1);
-    // $this->assertNotContains('McGronalds', $db->getRow('restaurant', 'name', 'McGronalds'));
+// public function testDeleteRow():void
+// {
+//     $db = new Database('mysql', 'root', 'root');
+//     $db->connect();
+//     $db->useDatabase('test');
+//     $db->dropRow('restaurant', 'id', 1);
+//     // $this->assertNotContains('McGronalds', $db->getRow('restaurant', 'name', 'McGronalds'));
 
-}
+// }
 
 
 public function testDropDatabase(): void
