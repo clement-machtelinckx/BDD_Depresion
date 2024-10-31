@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $time = time();
     $databaseName = $data["databaseName"];
     // $db->useDatabase($databaseName);
-    $fileName = $databaseName . $date . $time . ".sql";
+    $fileName = $databaseName . $date ."_". $time . ".sql";
     $dir = '/var/www/html/src/dump/' . $fileName;
 
     if (!file_exists('/var/www/html/src/dump')) {

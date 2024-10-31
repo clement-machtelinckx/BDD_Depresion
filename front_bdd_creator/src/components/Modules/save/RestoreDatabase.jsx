@@ -23,7 +23,7 @@ export const RestoreDatabase = () => {
         databaseName
       );
       console.log(response);
-
+      navigate(`/database`);
     } catch (error) {
       console.error("Error restoring database:", error);
 
