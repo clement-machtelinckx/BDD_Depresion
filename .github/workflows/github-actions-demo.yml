@@ -6,7 +6,14 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
 
+    services:
+      testdb:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          
     steps:
+
       # 1. Set up PHP 8.2
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
