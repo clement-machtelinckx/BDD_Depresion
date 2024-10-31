@@ -44,6 +44,7 @@ jobs:
 
       # AUtoload Composer
       - name: autoload composer
+        working-directory: ./BDD_Creator
         run: docker exec -i bdd_depresion_php-api_1 composer dump-autoload
 
       # 8. Run PHPUnit tests
