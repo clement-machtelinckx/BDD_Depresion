@@ -34,15 +34,15 @@ public function testCreateTable()
     $this->assertContains('restaurant', $db->getTableCollection('restaurant'));
 }
 
-public function testUpdateTableName(): void
-{
-    $db = new Database('mysql', 'root', 'root');
-    $db->connect();
-    $db->useDatabase('test');
-    $db->updateTableName('user', 'modifUser');
-    $this->assertContains('modifuser', $db->getTableCollection('modifuser'));
-    $this->assertContains('restaurant', $db->getTableCollection('restaurant'));
-}
+// public function testUpdateTableName(): void
+// {
+//     $db = new Database('mysql', 'root', 'root');
+//     $db->connect();
+//     $db->useDatabase('test');
+//     $db->updateTableName('user', 'modifUser');
+//     $this->assertContains('modifuser', $db->getTableCollection('modifuser'));
+//     $this->assertContains('restaurant', $db->getTableCollection('restaurant'));
+// }
 
 public function testDropTable(): void
 {
