@@ -17,7 +17,7 @@ class DatabaseTest extends TestCase
 {
 public function testCreateDatabase()
 {
-    $db = new Database('localhost', 'root', 'Clement2203$');
+    $db = new Database('mysql', 'root', 'root');
     $db->connect();
     $db->createDatabase('test');
     $this->assertContains('test', $db->getCollectionDatabases());
@@ -25,7 +25,7 @@ public function testCreateDatabase()
 
 public function testCreateTable()
 {
-    $db = new Database('localhost', 'root', 'Clement2203$');
+    $db = new Database('mysql', 'root', 'root');
     $db->connect();
     $db->useDatabase('test');
     $db->createTable('user', 'id INT PRIMARY KEY AUTO_INCREMENT PRIMARY KEY');
@@ -36,7 +36,7 @@ public function testCreateTable()
 
 public function testUpdateTableName(): void
 {
-    $db = new Database('localhost', 'root', 'Clement2203$');
+    $db = new Database('mysql', 'root', 'root');
     $db->connect();
     $db->useDatabase('test');
     $db->updateTableName('user', 'modifUser');
@@ -46,7 +46,7 @@ public function testUpdateTableName(): void
 
 public function testDropTable(): void
 {
-    $db = new Database('localhost', 'root', 'Clement2203$');
+    $db = new Database('mysql', 'root', 'root');
     $db->connect();
     $db->useDatabase('test');
     $db->dropTable('modifuser');
@@ -56,7 +56,7 @@ public function testDropTable(): void
 
 public function testAddColumn(): void
 {
-    $db = new Database('localhost', 'root', 'Clement2203$');
+    $db = new Database('mysql', 'root', 'root');
     $db->connect();
     $db->useDatabase('test');
     $db->addColumn('restaurant', 'name', 'VARCHAR(100)');
@@ -75,7 +75,7 @@ public function testAddColumn(): void
 
 public function testDropColumn(): void
 {
-    $db = new Database('localhost', 'root', 'Clement2203$');
+    $db = new Database('mysql', 'root', 'root');
     $db->connect();
     $db->useDatabase('test');
     $db->dropColumn('restaurant', 'todelete');
@@ -84,7 +84,7 @@ public function testDropColumn(): void
 
 public function testInsertRow(): void
 {
-    $db = new Database('localhost', 'root', 'Clement2203$');
+    $db = new Database('mysql', 'root', 'root');
     $db->connect();
     $db->useDatabase('test');
     $db->insertRow('restaurant', [
@@ -99,7 +99,7 @@ public function testInsertRow(): void
 }
 public function updateRow(): void
 {
-    $db = new Database('localhost', 'root', 'Clement2203$');
+    $db = new Database('mysql', 'root', 'root');
     $db->connect();
     $db->useDatabase('test');
     $db->updateRow('restaurant', 'id', 1, ['name' => 'McGronalds', 'age' => 55, 'date' => '2022-03-01', 'description' => 'slow food']);
@@ -107,7 +107,7 @@ public function updateRow(): void
 
 public function testDeleteRow():void
 {
-    $db = new Database('localhost', 'root', 'Clement2203$');
+    $db = new Database('mysql', 'root', 'root');
     $db->connect();
     $db->useDatabase('test');
     $db->dropRow('restaurant', 'id', 1);
@@ -118,7 +118,7 @@ public function testDeleteRow():void
 
 public function testDropDatabase(): void
 {
-    $db = new Database('localhost','root','Clement2203$');
+    $db = new Database('mysql','root','root');
     $db->connect();
     $db->dropDatabase('test');
     $this->assertNotContains('test', $db->getCollectionDatabases());
