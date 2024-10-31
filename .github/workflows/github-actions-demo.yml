@@ -44,5 +44,5 @@ jobs:
 
       # 8. Run PHPUnit tests
       - name: Run PHPUnit tests
-        working-directory: ./BDD_Creator
-        run: vendor/bin/phpunit tests
+        run: docker-compose exec bdd_depresion-php-api ./vendor/bin/phpunit -c /var/www/html/BDD_Creator/phpunit.xml
+
