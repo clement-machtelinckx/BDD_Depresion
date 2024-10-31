@@ -17,7 +17,7 @@ class DatabaseTest extends TestCase
 {
 public function testCreateDatabase()
 {
-    $db = new Database('bdd_depresion_mysql_1', 'root', 'root');
+    $db = new Database('mysql', 'root', 'root');
     $db->connect();
     $db->createDatabase('test');
     $this->assertContains('test', $db->getCollectionDatabases());
@@ -25,7 +25,7 @@ public function testCreateDatabase()
 
 public function testCreateTable()
 {
-    $db = new Database('bdd_depresion_mysql_1', 'root', 'root');
+    $db = new Database('mysql', 'root', 'root');
     $db->connect();
     $db->useDatabase('test');
     $db->createTable('user', 'id INT PRIMARY KEY AUTO_INCREMENT PRIMARY KEY');

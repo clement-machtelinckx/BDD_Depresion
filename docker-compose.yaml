@@ -10,8 +10,8 @@ services:
       - ./php.ini:/usr/local/etc/php/php.ini
     depends_on:
       - mysql
-    # networks:
-    #   - app-network
+    networks:
+      - app-network
 
   react-frontend:
     build:
@@ -26,8 +26,8 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
       - NODE_ENV="development"
-    # networks:
-    #   - app-network
+    networks:
+      - app-network
 
   mysql:
     image: mysql:5.7
@@ -37,11 +37,11 @@ services:
       - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-    # networks:
-    #   - app-network
+    networks:
+      - app-network
 
 volumes:
   mysql-data:
 
-# networks:
-#   app-network:
+networks:
+  app-network:
