@@ -1,4 +1,3 @@
-
 name: CI
 
 on: [push]
@@ -27,17 +26,23 @@ jobs:
         working-directory: ./BDD_Creator
         run: composer dump-autoload
 
-      # 5. Run npm install
+      # 5. Run npm install in the frontend folder
       - name: npm install
         working-directory: ./front_bdd_creator
         run: npm install
 
-      # 6. Run docker 
-      - name: docker-compose up
+      # 6. Install Docker Compose
+      - name: Install Docker Compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+
+      # 7. Start Docker Compose
+      - name: Start Docker Compose
         working-directory: ./
         run: docker-compose up -d
 
-      # 4. Run PHPUnit tests
+      # 8. Run PHPUnit tests
       - name: Run PHPUnit tests
         working-directory: ./BDD_Creator
         run: vendor/bin/phpunit tests
