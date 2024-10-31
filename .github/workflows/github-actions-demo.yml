@@ -42,6 +42,10 @@ jobs:
         working-directory: ./
         run: docker-compose up -d
 
+      # AUtoload Composer
+      - name: autoload composer
+        run: docker exec -i bdd_depresion_php-api_1 composer dump-autoload
+
       # 8. Run PHPUnit tests
       - name: Run PHPUnit tests
         run: docker exec -i bdd_depresion_php-api_1 ./vendor/bin/phpunit tests/functional/DatabaseTest.php
