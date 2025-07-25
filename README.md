@@ -62,3 +62,5 @@ Ce projet est sous licence MIT. Utilisation libre et open-source !
 
 📬 Contact & Feedback
 N’hésite pas à proposer des améliorations via issues & pull requests sur GitHub. 🙌
+
+Merci!
